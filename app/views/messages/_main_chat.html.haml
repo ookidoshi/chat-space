@@ -3,7 +3,6 @@
     .left_box
       .current_group カレントグループ
       .member_list メンバーリスト::まさ
-      -# .member メンバー
     .edit_btn
     =link_to "https://www.google.co.jp/", class:"edit_btn" do
       Edit
@@ -25,7 +24,7 @@
 
   .form
     .input_box
-      %input.login-input-text{:name => "email", :placeholder => "type a message", :type => "text", :value => ""}/
+      %input.login-input-text{name: "email", placeholder: "type a message", type: "text", value: ""}/
       .input_box_text
       .input_box_image
       .image
