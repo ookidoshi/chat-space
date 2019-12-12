@@ -1,0 +1,34 @@
+.chat_main
+  .main_header
+    .left_box
+      .current_group カレントグループ
+      .member_list メンバーリスト::まさ
+    .edit_btn
+    =link_to "https://www.google.co.jp/", class:"edit_btn" do
+      Edit
+
+
+  .messages
+    .message
+      .info xxx
+      .text こんばんは！
+    .message
+      .info xxx
+      .text こんばんは！
+    .message
+      .info xxx
+      .text こんばんは！
+    .message
+      .info xxx
+      .text こんばんは！
+
+  .form
+    .input_box
+      %input.login-input-text{name: "email", placeholder: "type a message", type: "text", value: ""}/
+      .input_box_text
+      .input_box_image
+      .image
+      %label{class: "image"}
+        = icon('fas', 'image')
+        %input{type: "file"}
+      .send_btn Send
