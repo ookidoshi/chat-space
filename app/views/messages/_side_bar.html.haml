@@ -2,6 +2,7 @@
   .side_header
     .box
       .username 太郎
+      = current_user.name
       .setting
         .edit
         = link_to "#" do
@@ -9,6 +10,8 @@
         .cong
         = link_to "#" do
           = icon('fas', 'cog')
+        = link_to edit_user_path(current_user) do
+          = icon('fas', 'cog', class: 'icon')
   .groups
     .group
       .name サンプルグループ
