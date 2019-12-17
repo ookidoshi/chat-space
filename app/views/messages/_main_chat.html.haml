@@ -1,28 +1,30 @@
 .chat
   .header
     .left_box
-      .title カレントグループ
-      .members::まさ
+      .left_box_current_group
+        = @group.name
+      .left_box_member_list
       .member
-    .edit_btn
-    =link_to "https://www.google.co.jp/", class:"edit_btn" do
+        - @group.users.each do |user|
+          = user.name
+  
+    =link_to edit_group_path(@group),  class:"edit_btn" do
       Edit
-
-
-  .messages
-    .message
-      .info xxx
-      .text こんばんは！
-    .message
-      .info xxx
-      .text こんばんは！
-    .message
-      .info xxx
-      .text こんばんは！
-    .message
-      .info xxx
-      .text こんばんは！
-
+  -# .messages
+    -# .message
+    -#   .info xxx
+    -#   .text こんばんは！
+    .messages
+  = render @messages
+   
+  .for
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
   .form
     .input_box
       %input.login-input-text{name: "email", placeholder: "type a message", type: "text", value: ""}/
