@@ -10,14 +10,12 @@
   
     =link_to edit_group_path(@group),  class:"edit_btn" do
       Edit
-  -# .messages
-    -# .message
-    -#   .info xxx
-    -#   .text こんばんは！
-    .messages
-  = render @messages
+  
+  .messages
+    = render @messages
    
-  .for
+  .form
+    .input_box
     = form_for [@group, @message] do |f|
       = f.text_field :content, class: 'form__message', placeholder: 'type a message'
       .form__mask
@@ -25,13 +23,6 @@
           = icon('fas', 'image', class: 'icon')
           = f.file_field :image, class: 'hidden'
       = f.submit 'Send', class: 'form__submit'
-  .form
-    .input_box
-      %input.login-input-text{name: "email", placeholder: "type a message", type: "text", value: ""}/
-      .input_box_text
-      .input_box_image
-      .image
-      %label{class: "image"}
-        = icon('fas', 'image')
-        %input{type: "file"}
-      .send_btn Send
+
+
+      .send_btn
