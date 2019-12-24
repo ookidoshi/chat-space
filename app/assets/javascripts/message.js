@@ -79,12 +79,10 @@ $(function(){
       });
         $('.messages').append(insertHTML);
         $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
-        $("form")[0].reset();
-        $(".form__submit").prop("disabled", false);
       }
     })
     .fail(function() {
-      console.log('error');
+      alert('error');
     });
   };
   if (document.location.href.match(/\/groups\/\d+\/messages/)) {
